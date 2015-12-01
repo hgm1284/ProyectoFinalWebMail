@@ -1,0 +1,60 @@
+header{
+	background: #21219e;
+}
+
+h1 {
+	color: #FFFFFF;
+	text-align: center;
+	padding-right: 10px;
+}
+
+h2 {
+    color: #FFFFFF;
+	text-align: center;
+	padding-right: 10px;
+	font-size: 23px
+}
+
+h3{
+	color: #2E2E2E;
+	text-align: center;
+}
+
+#boton-guardar{
+     margin-left: 31px;
+     border: 10px;
+     
+}
+
+footer{
+	color: #21219e;
+	font-size: 24px;
+	text-align: center;
+	padding-right: 100px;
+}
+
+.imagen{
+
+	float:left;width:135px;height:82px;margin:5px;margin-top:5px;
+}
+
+.imagen2{
+
+	float:right;width:135px;height:82px;margin:5px;margin-top:5px;
+}
+
+.botonBuscar{
+	float:left;width:85px;height:20px;margin:1px;margin-top:25px;
+}
+
+/*Rectangulo para ubicar los botones*/
+.rectanguloBotones {
+     width: 100px; 
+     float: left;
+     height: 100px;
+}
+
+/*Crear diseño y ubicación a la tabla*/
+#tablet{
+	width:80px;margin-left:100px;
+}
