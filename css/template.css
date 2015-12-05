@@ -58,3 +58,16 @@ footer{
 #tablet{
 	width:80px;margin-left:100px;
 }
+
+/*Espacios para escribir destinatarios y asunto*/
+#textareaPara{
+	width:600px;height:15px;margin-left:100px;border:5;margin-top:1px;resize:none;
+}
+
+#editar{
+	width:80px;margin-left:100px;
+}
+
+input.submit{
+	width:95px;height:30px;margin:1px;margin-top:1px;background:#B20000;color:white;
+}
