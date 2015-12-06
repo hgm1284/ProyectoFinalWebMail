@@ -1,3 +1,4 @@
+/*Header para todas las páginas*/
 header{
 	background: #21219e;
 }
@@ -9,7 +10,7 @@ h1 {
 }
 
 h2 {
-    color: #FFFFFF;
+	color: #FFFFFF;
 	text-align: center;
 	padding-right: 10px;
 	font-size: 23px
@@ -20,12 +21,14 @@ h3{
 	text-align: center;
 }
 
+/*Botón para ingresar a las páginas*/
 #boton-guardar{
-     margin-left: 31px;
-     border: 10px;
-     
+	margin-left: 31px;
+	border: 10px;
+
 }
 
+/*Footer para todas las páginas*/
 footer{
 	color: #21219e;
 	font-size: 24px;
@@ -49,9 +52,9 @@ footer{
 
 /*Rectangulo para ubicar los botones*/
 .rectanguloBotones {
-     width: 100px; 
-     float: left;
-     height: 100px;
+	width: 100px; 
+	float: left;
+	height: 100px;
 }
 
 /*Crear diseño y ubicación a la tabla*/
