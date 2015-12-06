@@ -1,4 +1,4 @@
-//Se crea una variable para p los datos de localStorage.
+//Se crea una variable para cargar los datos de localStorage.
 var users = JSON.parse(localStorage.getItem('users'));
 var isEditing=false;
 var idSeleccionado;
@@ -11,12 +11,12 @@ function saveToLocalStorage(nombre, apellido, mail, pwd) {
 
 	if ((nombre==null||nombre=="") || (apellido==null||apellido=="") || (mail==null||mail=="") || (pwd==null||pwd=="")) {
 
-		alert("Datos vacios");
+		alert("Datos vacios"); //Validación de datos completos.
 	}
 	else 
 	{
 		if (validarCorreo()==false) { 
-			alert('No es un correo valido');
+			alert("No es un correo valido"); //Validación de que sea un correo con la función.
 		}
 		else
 		{
@@ -34,14 +34,14 @@ function saveToLocalStorage(nombre, apellido, mail, pwd) {
 	}
 }
 
-//Se crea una variable para obtener los datos del localStorage.
+//Se crea una variable para obtener los correos del localStorage.
 var correos = JSON.parse(localStorage.getItem('correos'));
 
 if (!correos) {
 	correos = [];
 }
 
-//Se crea una función para mostrar los dato del envio de correos.
+//Se crea una función para mostrar los datos del envio de correos.
 function savemensajeToLocalStorage(destino, asunto, mensaje) {
 
 	var d = new Date();
@@ -54,28 +54,28 @@ function savemensajeToLocalStorage(destino, asunto, mensaje) {
 		"mensaje": mensaje,
 		"fecha":my
 	};
-if (validarCorreo2(destino)==false) {
-	alert("Dirección de Correo No Valido")
-}else{
-	if (isEditing==true) {
-		var retrievedObject = localStorage.getItem("correos");
-var data = JSON.parse(retrievedObject);
-data.splice(idSeleccionado,1);
-data.push(mns);
-localStorage.setItem("correos",JSON.stringify(data));
-isEditing = false;
-window.location.reload();
-}else{
+	if (validarCorreo2(destino)==false) {
+		alert("Dirección de Correo No Valido");
 
-	correos.push(mns);
-	localStorage.setItem('correos', JSON.stringify(correos));
-	window.location.href="InicioSalida.html";
+	}else{
+		if (isEditing==true) {
+			var retrievedObject = localStorage.getItem("correos");
+			var data = JSON.parse(retrievedObject);
+			data.splice(idSeleccionado,1);
+			data.push(mns);
+			localStorage.setItem("correos",JSON.stringify(data));
+			isEditing = false;
+			window.location.reload();
+		}else{
 
-}
-}
-	
+			correos.push(mns);
+			localStorage.setItem('correos', JSON.stringify(correos));
+			window.location.href="InicioSalida.html";
+		}
+	}
 }
 
+//Función para cargar los correos.
 function loadCorreos() {
 
 	var correo_html = "";
@@ -87,18 +87,17 @@ function loadCorreos() {
 	$('#correo_table').html(correo_html);
 }
 
-//Función pa validar usuarios.
+//Función para validar usuarios en el Signup.
 function isUser(){
 	var user= document.getElementById("exampleInputEmail3").value;
-
 	var userpassword= document.getElementById("exampleInputPassword3").value;
-	var usersList = JSON.parse(localStorage.getItem("users"));//el parse convierte el objeto guardado en local storage a un array manipulable.
+	var usersList = JSON.parse(localStorage.getItem("users"));//el parse convierte el objeto guardado en localStorage a un array manipulable.
 	var valid= false;
 	for(var i=0; i<usersList.length; i++){ //se obtienen los datos de cada usuario y se comparan con los datos ingresados para ver si coinciden.
 		var name = usersList[i].mail;
 		var clave = usersList[i].pwd;
 
-		if(name===user&&clave===userpassword){
+		if(name===user&&clave===userpassword){ //Aquí se compara con lo que hay en localStorage
 			window.location.href="InicioSalida.html";
 		}
 	}
@@ -136,14 +135,13 @@ $(document).ready(function(){
 
 //Función para eliminar correos.
 function eliminar(){
-var retrievedObject = localStorage.getItem("correos");
-var data = JSON.parse(retrievedObject);
-data.splice(idSeleccionado,1);
-localStorage.setItem("correos",JSON.stringify(data));
-isEditing = false;
-window.location.reload();
+	var retrievedObject = localStorage.getItem("correos");
+	var data = JSON.parse(retrievedObject);
+	data.splice(idSeleccionado,1);
+	localStorage.setItem("correos",JSON.stringify(data));
+	isEditing = false;
+	window.location.reload();
 }
-
 
 //Función para cargar los datos de la tabla en el modal.
 window.onload = function () {
@@ -169,6 +167,7 @@ function reiniciar(){
 	document.getElementById("mensaje").value = "";
 }
 
+//Funciones para validar que el usuario introduzca un correo valido.
 function validarCorreo() {
 	var email = document.getElementById('mail');
 	var filter = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
@@ -178,6 +177,7 @@ function validarCorreo() {
 		return false;
 	}
 }
+
 function validarCorreo2() {
 	var email = document.getElementById('destino');
 	var filter = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
@@ -187,55 +187,3 @@ function validarCorreo2() {
 		return false;
 	}
 }
-
-
-// var MYAPP = {
-// 	year: 2015,
-// 	month: 'feb',
-// 	Client: function (firstName, lastName) {
-// 	  this.firstName = firstName;
-// 	  this.lastName = lastName;
-
-// 	  this.save = function() {
-// 	  	//insert into 
-// 	  	console.log('Saving user', this.firstName, this.lastName);
-// 	  	// save to localstorage
-// 	  };
-// 	},
-// 	validateUser: function() {
-// 		var year = 2020;
-
-
-// 		var username = $('#username').val();
-// 		var password = $('#password').val();
-// 		debugger;
-// 		var errorElement = jQuery('#error_msg');
-
-// 		if (username == 'admin' && password == 'password') {
-// 			console.log('logged in')
-// 			errorElement.hide();
-// 		} else {
-// 			errorElement.html('Username or Password invalid').addClass('error').show();
-// 		}	
-// 	},
-// 	saveClient: function() {
-// 		var firstName = document.getElementById('firstName').value;
-// 		var lastName = document.getElementById('lastName').value;
-
-// 		var client1 = new MYAPP.Client(firstName, lastName);
-// 		client1.save();
-// 	},
-// 	bindEvents: function() {
-// 		//jQuery('#login-button').click(MYAPP.validateUser);
-
-// 		jQuery('#save-client').bind('click',function(){
-// 			MYAPP.saveClient();
-// 		});
-
-
-// 	},
-// };
-
-// jQuery(document).ready( function() {
-// 	MYAPP.bindEvents();
-// });

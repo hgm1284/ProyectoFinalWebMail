@@ -25,7 +25,6 @@ h3{
 #boton-guardar{
 	margin-left: 31px;
 	border: 10px;
-
 }
 
 /*Footer para todas las páginas*/
@@ -36,37 +35,14 @@ footer{
 	padding-right: 100px;
 }
 
+/*Posición de la imagen en el Registro.html*/
 .imagen{
 
 	float:left;width:135px;height:82px;margin:5px;margin-top:5px;
 }
 
+/*Posición de la imagen para las páginas de los correos*/
 .imagen2{
 
 	float:right;width:135px;height:82px;margin:5px;margin-top:5px;
-}
-
-.botonBuscar{
-	float:left;width:85px;height:20px;margin:1px;margin-top:25px;
-}
-
-/*Rectangulo para ubicar los botones*/
-.rectanguloBotones {
-	width: 100px; 
-	float: left;
-	height: 100px;
-}
-
-/*Crear diseño y ubicación a la tabla*/
-#tablet{
-	width:80px;margin-left:100px;
-}
-
-/*Espacios para escribir destinatarios y asunto*/
-#textareaPara{
-	width:600px;height:15px;margin-left:100px;border:5;margin-top:1px;resize:none;
-}
-
-#editar{
-	width:80px;margin-left:100px;
 }
